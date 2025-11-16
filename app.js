@@ -6,12 +6,13 @@ const app = express();
 const port = 3000;
 
 // API route to return JSON data
-app.get('/api/info', (req, res) => {
+app.get('/data/info', (req, res) => {
   res.json(data);
+  
 });
 
 // Serve static files using an absolute path (recommended for reliability)
-app.use('/static', express.static(path.join(__dirname, 'pages')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 console.log(__dirname); // Logs the absolute directory path
 
