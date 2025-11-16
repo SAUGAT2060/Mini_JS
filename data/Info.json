@@ -1,0 +1,32 @@
+[
+  {
+    "name": "James",
+    "study": "Bachelors",
+    "subject": "CsIT"
+  },
+  {
+    "name": "Harry",
+    "study": "Diploma",
+    "subject": "Computer Programming"
+  },
+  {
+    "name": "David",
+    "study": "Masters",
+    "subject": "Data Science"
+  },
+  {
+    "name": "Mia",
+    "study": "Bachelors",
+    "subject": "Software Engineering"
+  },
+  {
+    "name": "Marlon",
+    "study": "Diploma",
+    "subject": "Cyber Security"
+  },
+  {
+    "name": "Emma",
+    "study": "PhD",
+    "subject": "Artificial Intelligence"
+  }
+]
