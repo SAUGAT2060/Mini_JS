@@ -3,44 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First</title>
+  <title>Project Objective</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: #334155;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #1e40af;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    #jsonData {
+      margin-top: 40px;
+      width: 80%;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin-bottom: 12px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <h1>This is just a Demo Page</h1>
-  <button id="btn1">Fetch Data</button>
+
+  <h1>Main Project Objective</h1>
+  <img src="./Images/Hi.gif" alt="Hi">
+  <h2>Click the button below to fetch the data</h2>
+  <button id="btn1">Click to Fetch Data</button>
 
   <div id='jsonData'></div>
-</body>
-<script>
-  const getBtn = document.getElementById('btn1');
- const url = 'http://localhost:3000/data/info';
-  getBtn.addEventListener('click',async()=>{
 
-    try{
-      const response = await fetch(url);
-      const data = await response.json()
-      // console.log(data);
-      
-
-      //using ul element 
-
-      let ulElement = "<ul>"
-
+  <script>
+    const getBtn = document.getElementById('btn1');
+    const url = 'http://localhost:3000/data/info';
+    getBtn.addEventListener('click', async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        let ulElement = "<ul>";
         data.forEach(element => {
-          ulElement +="<li>"+element.name+":"+element.study+":"+element.subject+"</li>";
-          
+          ulElement += `<li>${element.name} : ${element.study} : ${element.subject}</li>`;
         });
-           ulElement += "</ul>"
+        ulElement += "</ul>";
 
-           console.log(ulElement);
-      document.getElementById("jsonData").innerHTML = ulElement;
+        document.getElementById("jsonData").innerHTML = ulElement;
 
-    }
-    catch(err){
-      console.log(err)
-
-    }
-   
-  } )
-</script>
+      } catch(err) {
+        console.log(err);
+      }
+    });
+  </script>
+</body>
 </html>
